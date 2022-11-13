@@ -33,7 +33,7 @@ jobs:
 
     - name: Generate
       if: ${{ matrix.cmake_version < 13 }}
-      run: cmake -E make_directory ./build; cmake -E chdir ./build cmake -Werror=dev -DCMAKE_BUILD_TYPE=Debug ..
+      run: cmake -E make_directory ./build; cmake -E chdir ./build cmake -Werror=dev -DCMAKE_BUILD_TYPE=Debug -G "Visual Studio 12 2013" ..
 
     - name: Generate
       if: ${{ matrix.cmake_version >= 13 }}
