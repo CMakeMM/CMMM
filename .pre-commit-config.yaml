@@ -83,3 +83,8 @@ repos:
     args: [--config=.cmake-format.yml]
   - id: cmake-lint
     args: [--config=.cmake-linter.yml]
+
+- repo: https://github.com/sirosen/check-jsonschema
+  rev: 0.19.1
+  hooks:
+  - id: check-github-workflows

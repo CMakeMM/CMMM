@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  pre-3.13:
+  pre-3_13:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -33,7 +33,7 @@ jobs:
     - name: Generate a Project Buildsystem
       run: mkdir ./build; cd ./build; cmake ..
 
-  post-3.13:
+  post-3_13:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
