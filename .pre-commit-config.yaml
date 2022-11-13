@@ -70,3 +70,8 @@ repos:
   hooks:
   - id: editorconfig-checker
     name: check .editorconfig rules
+
+- repo: https://github.com/codespell-project/codespell
+  rev: v2.2.2
+  hooks:
+  - id: codespell
