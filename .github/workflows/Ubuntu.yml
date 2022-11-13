@@ -30,8 +30,12 @@ jobs:
         cmake-version: ${{ matrix.cmake_version }}.x
         github-api-token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Generate a Project Buildsystem
+    - name: Generate
       run: mkdir ./build; cd ./build; cmake -Werror=dev ..
+
+    - name: Build
+      run: cmake --build ./build  --config None
+
 
   post-3_13:
     runs-on: ubuntu-latest
@@ -51,5 +55,8 @@ jobs:
         cmake-version: ${{ matrix.cmake_version }}.x
         github-api-token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Generate a Project Buildsystem
+    - name: Generate
       run: cmake -Werror=dev -S . -B ./build
+
+    - name: Build
+      run: cmake --build ./build --parallel 2 --config None
