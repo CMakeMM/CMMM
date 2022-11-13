@@ -31,10 +31,10 @@ jobs:
         github-api-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Generate
-      run: mkdir ./build; cd ./build; cmake -Werror=dev ..
+      run: mkdir ./build; cd ./build; cmake -Werror=dev -DCMAKE_BUILD_TYPE=Debug ..
 
     - name: Build
-      run: cmake --build ./build  --config None
+      run: cmake --build ./build  --config Debug
 
 
   post-3_13:
@@ -56,7 +56,7 @@ jobs:
         github-api-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Generate
-      run: cmake -Werror=dev -S . -B ./build
+      run: cmake -Werror=dev -S . -B ./build -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build
-      run: cmake --build ./build --parallel 2 --config None
+      run: cmake --build ./build --parallel 2 --config Debug
